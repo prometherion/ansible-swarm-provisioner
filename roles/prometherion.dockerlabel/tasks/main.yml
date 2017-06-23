@@ -1,0 +1,9 @@
+---
+#
+# Labelling Docker Engine with custom role
+#
+- name: Labelling Docker Engine
+  template: src=./templates/docker-daemon.j2
+            dest=/etc/docker/daemon.json
+            owner=root
+            group=root

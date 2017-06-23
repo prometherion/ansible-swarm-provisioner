@@ -1,0 +1,6 @@
+---
+- name: Updating repository
+  yum: name=* state=latest
+
+- name: Installing latest version of Docker
+  yum: name=docker state=present

@@ -1,0 +1,36 @@
+---
+#
+# Installing Docker
+#
+- name: Installing Docker
+  hosts: all
+  become: true
+  roles:
+  - { role: prometherion.acciodocker }
+
+#
+# Starting docker as a service
+#
+- name: Starting Docker
+  hosts: all
+  become: true
+  roles:
+    - { role: prometherion.startdocker }
+
+#
+# Labelling Docker Engine with custom role
+#
+- name: Labelling Docker Engine
+  hosts: all
+  become: true
+  roles:
+    - { role: prometherion.dockerlabel }
+
+#
+# Init of Docker Swarm cluster
+#
+- name: Init Docker Swarm cluster
+  hosts: all
+  become: true
+  tasks:
+    - shell: docker swarm init
